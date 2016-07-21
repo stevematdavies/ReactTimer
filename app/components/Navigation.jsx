@@ -16,7 +16,7 @@ module.exports = () => {
              <div className="top-bar-right">
                  <ul className="menu">
                      <li className="menu-text">
-                         Created by <a href="https://github.com/stevematdavies" target="_blank">Stephen Davies</a>
+                        Created by <a href="https://github.com/stevematdavies" target="_blank">Stephen Davies</a>
                      </li>
                  </ul>
              </div>
