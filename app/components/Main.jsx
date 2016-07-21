@@ -7,7 +7,6 @@ module.exports = (props)  => {
             <div>
                 <div>
                     <Navigation />
-                    <p>Main.jsx</p>
                     { props.children }
                 </div>
             </div>
