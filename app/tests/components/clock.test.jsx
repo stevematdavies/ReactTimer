@@ -41,8 +41,7 @@ describe('Render Clock', ()=> {
     it('Should render the clock to output', () => {
 
         let $el = $(ReactDOM.findDOMNode(clockComponent));
-        let actualText = $el.find('clock-text').text();
-
+        let actualText = $el.find('.clock-text').text();
         Expect(actualText).toBe('01:01');
 
     });
