@@ -24,26 +24,30 @@ describe('Clock', () => {
         Expect(actual).toBe(expected);
     }) ;
 
-    it('should format seconds when mins & secs < 10', () => {
+    describe('render', ()=> {
 
-        let seconds = 61;
-        let expected = '01:01';
-        let actual = clockComponent.formatSeconds(seconds);
+        let clockComponent = TestUtils.renderIntoDocument(<Clock totalSeconds={61} />);
 
-        Expect(actual).toBe(expected);
-    }) ;
-});
+        it('Should render the clock to output', () => {
 
-describe('Render Clock', ()=> {
+            let $el = $(ReactDOM.findDOMNode(clockComponent));
+            let actualText = $el.find('.clock-text').text();
+            Expect(actualText).toBe('01:01');
 
-    let clockComponent = TestUtils.renderIntoDocument(<Clock totalSeconds={61} />);
-
-    it('Should render the clock to output', () => {
-
-        let $el = $(ReactDOM.findDOMNode(clockComponent));
-        let actualText = $el.find('.clock-text').text();
-        Expect(actualText).toBe('01:01');
+        });
 
     });
 
+    describe('formatSeconds', () => {
+
+        it('should format seconds when mins & secs < 10', () => {
+
+            let seconds = 61;
+            let expected = '01:01';
+            let actual = clockComponent.formatSeconds(seconds);
+
+            Expect(actual).toBe(expected);
+        }) ;
+    });
 });
+
