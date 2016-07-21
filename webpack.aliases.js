@@ -6,7 +6,8 @@ module.exports = {
    
     /*Alias --------- |  Path -------------------------------- */
 
-    Main:               'app/components/Main.jsx', 
+    Main:               'app/components/Main.jsx',
+    Navigation:         'app/components/Navigation.jsx',
     ApplicationStyles:  'app/styles/app.scss'
 
     /* ----------------------------------------------------- */
