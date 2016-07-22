@@ -11,8 +11,6 @@ module.exports = React.createClass ( {
         return {count: 0, countdownStatus: 'stopped'}
     },
 
-    componentWillReceiveProps(){},
-
     componentDidUpdate(preProps, preState) {
 
         if (this.state.countdownStatus !== preState.countdownStatus) {

@@ -1,39 +1,64 @@
 const React = require ('react');
 const Clock = require('Clock');
-const Controls = require('Controls');
 
 
-module.exports = React.createClass({
-
+module.exports = React.createClass ({
 
     getInitialState() {
-        return {count: 0, countdownStatus: 'stopped'}
+        return {count: 0,timerStatus: 'stopped'}
     },
 
-
-    onStatusChange() {
-
+    handleStatusChange(_status){
+      return ()=> {
+          this.setState({timerStatus: _status});
+      }
     },
 
-    render(){
+    clearTimer(){
+        this.setState({count: 0, timerStatus: 'stopped'})
+        clearInterval(this.timer);
+        this.timer = undefined;
+    },
 
-        let renderStopStartButton = () => {
-            if (countdownStatus === 'started') {
-                return <button className="button secondary" onClick={this.onStatusChange('stopped')}>Stop</button>;
-            } else if (countdownStatus === 'stopped') {
-                return <button className="button primary"   onClick={this.onStatusChange('started')}>Start</button>;
+    componentDidUpdate(_,prevState){
+        if (this.state.timerStatus !== prevState.timerStatus) {
+           (this.state.timerStatus === 'started')? this.startTimer() : this.stopTimer();
+        }
+    },
+
+    startTimer(){
+        this.timer = setInterval(()=>{
+            let inc = this.state.count + 1;
+            this.setState({count: inc});
+        },1000)
+    },
+
+    stopTimer(){
+        clearInterval(this.timer);
+        this.setState({timerStatus: 'stopped'});
+    },
+
+    render() {
+
+        let { count } = this.state;
+
+        let renderButtons = () => {
+            if (this.state.timerStatus === 'stopped') {
+                return <button className="button success" onClick={this.handleStatusChange('started')}>Start</button>;
+            } else {
+                return  <button className="button alert" onClick={this.handleStatusChange('stopped')}>Stop</button>
             }
         };
-
-        let { countdownStatus } = this.state;
 
         return (
             <div>
                 <h1 className="page-title">Timer App</h1>
-                <Clock />
-                {renderStopStartButton()}
+                <Clock totalSeconds={count}/>
+                <div className="controls">
+                    {renderButtons()}
+                    <button className="button secondary hollow" onClick={this.clearTimer}>Clear</button>
+                </div>
             </div>
         );
     }
-
 });
