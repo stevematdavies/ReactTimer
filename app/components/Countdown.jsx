@@ -11,6 +11,8 @@ module.exports = React.createClass ( {
         return {count: 0, countdownStatus: 'stopped'}
     },
 
+    componentWillReceiveProps(){},
+
     componentDidUpdate(preProps, preState) {
 
         if (this.state.countdownStatus !== preState.countdownStatus) {
@@ -29,11 +31,18 @@ module.exports = React.createClass ( {
         }
     },
 
+    // Fired when removed from DOM
+    componentWillUnmount() {
+        clearInterval(this.timer);
+        this.timer = undefined;
+    },
+
     startTimer() {
 
         this.timer = setInterval( ()=> {
             let newCount = this.state.count - 1;
             this.setState({count: newCount >= 0 ? newCount : 0});
+            if(newCount == 0) this.setState({countdownStatus: 'stopped'});
         }, 1000 );
     },
 

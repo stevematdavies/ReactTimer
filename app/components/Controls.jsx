@@ -7,7 +7,6 @@ module.exports = React.createClass({
         onStatusChange: React.PropTypes.func.isRequired
     },
 
-
     onStatusChange(newStatus) {
         return () => this.props.onStatusChange(newStatus);
     },
