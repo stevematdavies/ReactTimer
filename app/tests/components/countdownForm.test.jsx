@@ -8,9 +8,7 @@ const CountdownForm = require('CountdownForm');
 
 describe('CountdownForm', () => {
 
-    it ( 'should exist', () => {
-        Expect ( CountdownForm ).toExist ();
-    });
+    it ( 'should exist', () => Expect ( CountdownForm ).toExist () );
 
     it('should call onSetCountdown if valid seconds are entered', () => {
         let spy = Expect.createSpy();

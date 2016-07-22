@@ -7,9 +7,7 @@ const Countdown = require('Countdown');
 
 describe('Countdown', ()=>{
 
-    it('should exist', ()=> {
-        Expect(Countdown).toExist();
-    });
+    it('should exist', ()=> Expect(Countdown).toExist() );
 
     describe('handleSetCountdown', () => {
 

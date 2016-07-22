@@ -11,9 +11,7 @@ describe('Clock', () => {
 
     let clockComponent = TestUtils.renderIntoDocument(<Clock />);
 
-    it('should exist', ()=> {
-        Expect(Clock).toExist();
-    });
+    it('should exist', ()=> Expect(Clock).toExist() );
 
     it('should return correctly formatted time', () => {
 

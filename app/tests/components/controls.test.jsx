@@ -8,9 +8,7 @@ const Controls = require('Controls');
 
 describe('Controls', ()=> {
 
-    it('should exist', ()=> {
-       Expect(Controls).toExist();
-    });
+    it('should exist', ()=> Expect(Controls).toExist() );
 
     describe('render', ()=> {
 
