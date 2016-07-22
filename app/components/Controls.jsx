@@ -3,7 +3,8 @@ const React = require('react');
 module.exports = React.createClass({
 
     propTypes: {
-        countdownStatus: React.PropTypes.string.isRequired
+        countdownStatus: React.PropTypes.string.isRequired,
+        onStatusChange: React.PropTypes.func.isRequired
     },
 
 
@@ -12,7 +13,6 @@ module.exports = React.createClass({
     },
 
     render(){
-
 
         let { countdownStatus } = this.props;
 
