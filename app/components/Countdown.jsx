@@ -15,7 +15,8 @@ module.exports = React.createClass ( {
     componentDidUpdate(preProps, preState) {
         if (this.state.coundownStatus !== preState.countdownStatus) {
             switch(this.state.countdownStatus) {
-                case 'started' : this.startTimer(); break;
+                case 'started' : this.startTimer();
+                    break;
             }
         }
     },
