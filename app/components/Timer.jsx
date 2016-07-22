@@ -15,7 +15,7 @@ module.exports = React.createClass ({
     },
 
     clearTimer(){
-        this.setState({count: 0, timerStatus: 'stopped'})
+        this.setState({count: 0, timerStatus: 'stopped'});
         clearInterval(this.timer);
         this.timer = undefined;
     },
