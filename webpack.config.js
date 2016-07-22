@@ -1,5 +1,6 @@
 const Aliases = require('./webpack.aliases');
 const Webpack = require('webpack');
+const Path = require('path');
 
 module.exports = {
 
@@ -39,6 +40,10 @@ module.exports = {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/
             }]
+    },
+
+    sassLoader: {
+        includePaths:[  Path.resolve(__dirname, './node_modules/foundation-sites/scss') ]
     },
 
     devtool: 'cheap-module-eval-source-map'

@@ -6,11 +6,10 @@ const Timer = require('Timer');
 const Countdown = require('Countdown');
 
 // Load Foundation
-require('style!css!foundation-sites/dist/foundation.min.css')
-$(document).foundation()
+$(document).foundation();
 
 // Custom Styles
-require('style!css!sass!ApplicationStyles')
+require('style!css!sass!ApplicationStyles');
 
 
 /* Define your routes here */
